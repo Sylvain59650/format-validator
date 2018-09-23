@@ -2,7 +2,7 @@
   "author": "Sylvain Longepee <slongepee@gmail.com>",
   "license": "MIT",
   "groupId": "slongepee",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "main": "distrib/format-validator.min.js",
   "name": "format-validator",
   "description": "Validate specifics inputs",
