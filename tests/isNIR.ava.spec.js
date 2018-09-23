@@ -1,5 +1,5 @@
 import { test } from "ava";
-var validators = require("../distrib/validators.min.js");
+var validators = require("../distrib/format-validator.min.js");
 
 test("nir-valids", t => {
   var inputs = ["173025965003809"];

@@ -1,5 +1,5 @@
 import { test } from "ava";
-var validators = require("../distrib/validators.min.js");
+var validators = require("../distrib/format-validator.min.js");
 
 test("MobilePhoneFr-valids", t => {
   var inputs = ["0780019933", "0601020304", "0699887744"];

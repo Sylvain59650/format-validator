@@ -1,5 +1,5 @@
 import { test } from "ava";
-var validators = require("../distrib/validators.min.js");
+var validators = require("../distrib/format-validator.min.js");
 
 test("isEmail-valids", t => {
   var inputs = [

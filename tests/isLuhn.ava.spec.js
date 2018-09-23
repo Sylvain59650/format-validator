@@ -1,5 +1,5 @@
 import { test } from "ava";
-var validators = require("../distrib/validators.min.js");
+var validators = require("../distrib/format-validator.min.js");
 
 test("isLuhn-valids", t => {
   var inputs = ["4979588937806985", "33680019933"];

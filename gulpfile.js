@@ -13,13 +13,13 @@ var chemins = {
 
 
 
-gulp.task("validators.min.js", ["vendor"], () => {
+gulp.task("format-validator.min.js", ["vendor"], () => {
   return gulp.src([
       "sources/*.js"
     ])
-    .pipe(concat("validators.min.js"))
+    .pipe(concat("format-validator.min.js"))
     .pipe(babel({
-      presets: ["es2015"],
+      presets: ["env"],
       compact: false,
       comments: false
     }))
@@ -40,27 +40,27 @@ gulp.task("demo", () => {
   return gulp.src([
       "sources/*.js"
     ])
-    .pipe(concat("validators.min.js"))
+    .pipe(concat("format-validator.min.js"))
     .pipe(babel({
-      presets: ["es2015"],
+      presets: ["env"],
       compact: false,
       comments: false
     }))
 
-  .pipe(gulp.dest(chemins.demo + "modules/validators/distrib/"))
+  .pipe(gulp.dest(chemins.demo + "modules/format-validator/distrib/"))
 });
 
-gulp.task("watch:validators.min.js", function() {
-  watch("./sources/validators.js", function() {
-    gulp.run("validators.min.js");
+gulp.task("watch:format-validator.min.js", function() {
+  watch("./sources/*.js", function() {
+    gulp.run("format-validator.min.js");
   });
 });
 
 
 
-gulp.task("default", ["validators.min.js", "demo", "vendor"]);
+gulp.task("default", ["format-validator.min.js", "demo", "vendor"]);
 
 
 gulp.task("all", ["default"]);
 
-gulp.task("watch", ["watch:validators.min.js"]);
+gulp.task("watch", ["watch:format-validator.min.js"]);

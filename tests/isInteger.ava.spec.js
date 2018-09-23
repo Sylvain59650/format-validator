@@ -1,5 +1,5 @@
 import { test } from "ava";
-var validators = require("../distrib/validators.min.js");
+var validators = require("../distrib/format-validator.min.js");
 
 test("isInteger-valids", t => {
   var inputs = ["123", "45678901234567890123456", "0", "5789"];
