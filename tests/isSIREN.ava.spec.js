@@ -14,7 +14,14 @@ test("siren-valids", t => {
 });
 
 test("siren-invalids", t => {
-  var inputs = ["732829321", "552100555", "123", "PMR456789", "732-293-0", ""];
+  var inputs = [
+    "732829321",
+    "552100555",
+    "123",
+    "PMR456789",
+    "732-293-0",
+    ""
+  ];
   for (var input of inputs) {
     let result = validators.isSIREN(input);
     t.deepEqual(result, false, input + " fail");

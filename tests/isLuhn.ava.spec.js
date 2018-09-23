@@ -2,7 +2,7 @@ import { test } from "ava";
 var validators = require("../distrib/format-validator.min.js");
 
 test("isLuhn-valids", t => {
-  var inputs = ["4979588937806985", "33680019933"];
+  var inputs = ["4648592325813927", "33680019933"];
   for (var input of inputs) {
     let result = validators.isLuhn(input);
     t.deepEqual(result, true, input + " fail");

@@ -15,7 +15,7 @@
     <img src="https://hits.dwyl.com/Sylvain59650/format-validator.svg" />
   </div>
 
-    easy add/remove event on html elements
+    validation of specific fields
 
  <div class="Note" style="color:orange;font-style:italic">
  
