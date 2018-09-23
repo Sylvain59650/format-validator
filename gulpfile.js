@@ -20,7 +20,7 @@ gulp.task("format-validator.min.js", ["vendor"], () => {
     .pipe(concat("format-validator.min.js"))
     .pipe(babel({
       presets: ["env"],
-      compact: false,
+      compact: true,
       comments: false
     }))
 
