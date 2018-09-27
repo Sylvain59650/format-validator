@@ -45,14 +45,19 @@
 
 
   <nav>
+    <li><a href="#areDigits">areDigits</a></li>
+    <li><a href="#areIn">areIn</a></li>
+    <li><a href="#isBIC">isBIC</a></li>
     <li><a href="#isCreditCard">isCreditCard</a></li>
     <li><a href="#isEAN13">isEAN13</a></li>
     <li><a href="#isEmail">isEmail</a></li>
+    <li><a href="#isIBAN">isIBAN</a></li>
     <li><a href="#isIMEI">isIMEI</a></li>
-    <li><a href="#areDigits">areDigits</a></li>
+    <li><a href="#isIPv4">isIPv4</a></li>
     <li><a href="#isLuhn">isLuhn</a></li>
     <li><a href="#isMobilePhoneFr">isMobilePhoneFr</a></li>
     <li><a href="#isNIR">isNIR</a></li>
+    <li><a href="#isRIB">isRIB</a></li>
     <li><a href="#isSIREN">isSIREN</a></li>
     <li><a href="#isSIRET">isSIRET</a></li>
   </nav>
@@ -64,10 +69,38 @@
     <h3>For Browser</h3>
     <code><xmp><script src="node_modules/distrib/format-validator.min.js"></script></xmp></code>
   </intro>
+
+  <article id="areDigits">
+    <h2>areDigits</h2>
+    <div class="description">Check if a string contains only digits</div>
+    <code>validators.areDigits(input);</code>
+  </article>
+
+  <article id="areIn">
+    <h2>areIn</h2>
+    <div class="description">Check if a string contains only char in acceptings</div>
+    <code>validators.areIn(input,acceptings);</code>
+  </article>
+
+  <article id="isBIC">
+    <h2>isBIC</h2>
+    <div class="description">Check if a string represents a valid BIC number</div>
+    <div class="controle"><pre>Code Banque : 4 caractères définissant la banque d'une manière unique
+              Code Pays : 2 caractères constituant le code ISO du pays (ISO 3166)
+              Code Emplacement : 2 caractères de localisation (alphabétique ou numérique) pour distinguer les banques d'un même pays (ville, État, provinces)
+              Code Branche : 3 caractères optionnels définissant l'agence comme une branche de la banque ('XXX' pour le siège central, 'LYO' pour une agence à Lyon, etc.)</div>
+            </pre>
+      <code>validators.isBIC(input);</code>
+  </article>
+
   <article id="isCreditCard">
     <h2>isCreditCard</h2>
     <div class="description">Check if a string represents a valid credit card number</div>
-    <code>validators.isCreditCard(input);</code>
+    <div class="controle"><pre>
+        type if filled must be MasterCard, VISA, Amex, DinersClub, enRoute, Discover or JCB
+        check the format according to the type, length of input and control key
+    </pre></div>
+    <code>validators.isCreditCard(input,type);</code>
   </article>
 
   <article id="isEAN13">
@@ -83,17 +116,19 @@
     <code>validators.isEmail(input);</code>
   </article>
 
+  <article id="isIPv4">
+    <h2>isIMEI</h2>
+    <div class="description">Check if a string represents a valid isIPv4 format</div>
+    <code>validators.isIPv4(input);</code>
+  </article>
+
+
   <article id="isIMEI">
     <h2>isIMEI</h2>
     <div class="description">Check if a string represents a valid IMEI format</div>
     <code>validators.isIMEI(input);</code>
   </article>
 
-  <article id="areDigits">
-    <h2>areDigits</h2>
-    <div class="description">Check if a string represents a integer format</div>
-    <code>validators.areDigits(input);</code>
-  </article>
 
   <article id="isLuhn">
     <h2>isLuhn</h2>
@@ -113,6 +148,13 @@
     <div class="description">Check if a string represents a valid NIR number</div>
     <div class="controle">15 digits, sex + control key</div>
     <code>validators.isNIR(input);</code>
+  </article>
+
+  <article id="isRIB">
+    <h2>isNIR</h2>
+    <div class="description">Check if a string represents a valid RIB number</div>
+    <div class="controle">15 digits, sex + control key</div>
+    <code>validators.isRIB(input);</code>
   </article>
 
   <article id="isSIREN">

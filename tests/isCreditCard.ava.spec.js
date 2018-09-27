@@ -17,6 +17,27 @@ test("isCreditCard-valids", t => {
   }
 });
 
+
+test("isCreditCard-valids-masterCards", t => {
+  var inputs = [
+    "5397696455799499"
+  ];
+  for (var input of inputs) {
+    let result = validators.isCreditCard(input, "MasterCard");
+    t.deepEqual(result, true, input + " fail");
+  }
+});
+
+test("isCreditCard-invalids-visa", t => {
+  var inputs = [
+    "5397696455799499"
+  ];
+  for (var input of inputs) {
+    let result = validators.isCreditCard(input, "VISA");
+    t.deepEqual(result, false, input + " fail");
+  }
+});
+
 test("isCreditCard-invalids", t => {
   var inputs = ["4979588937806986", "4648592325813928"];
   for (var input of inputs) {

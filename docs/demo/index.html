@@ -1,7 +1,32 @@
-demo
+<html>
 
-<div class="breadcrumb">
-  <a href="https://www.npmjs.com/package/format-validator" title="NPM">
-    <img src="https://sylvain59650.github.io/demonstrator/img/npm.png" height="32"></a>
-  <a href="https://github.com/Sylvain59650/format-validator" title="GitHub"><img src="https://github.com/favicon.ico" height="32" /></a>
-</div>
+<body>
+
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/htmlelement-extension@0.8.8/distrib/htmlElement.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/htmlelement-events-extension@0.9.8/distrib/htmlElement-events.min.js"></script>
+
+  </head>
+  <div class="breadcrumb">
+    <a href="https://www.npmjs.com/package/format-validator" title="NPM">
+      <img src="https://sylvain59650.github.io/demonstrator/img/npm.png" height="32"></a>
+    <a href="https://github.com/Sylvain59650/format-validator" title="GitHub"><img src="https://github.com/favicon.ico" height="32" /></a>
+
+  </div>
+
+  <script src="modules/format-validator/distrib/format-validator.min.js"></script>
+  <script>
+    document.ready(function() {
+      qsi("btn").on("click", function() {
+        debugger;
+        var input = qsi("ean").value;
+        var result = validators.isEAN13(input);
+        console.log(result);
+      });
+    });
+  </script>
+  <input type="text" name="ean" id="ean" />
+  <button type="button" id="btn">Ok</button>
+</body>
+
+</html>

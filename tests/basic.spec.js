@@ -1,4 +1,5 @@
 var validators = require("../distrib/format-validator.min.js");
 
-//console.log(validators.isLuhn("35600000032573", 5));
-var invalid = validators.isSIRET("35600000032573");
+var v = validators.isIBAN("FR05 2004 1010 0509 5187 2N02 692");
+
+console.log(v);
