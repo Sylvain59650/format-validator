@@ -4,7 +4,7 @@ function isSIREN(input) {
     (isLuhn(input, 10));
 }
 
-exports["isSIREN"] = isSIREN;
+exports.isSIREN = isSIREN;
 
 
 function isSIRET(input) {
@@ -13,4 +13,4 @@ function isSIRET(input) {
   return precheck && (isLuhn(siren, 10) || (siren === "356000000" && isLuhn(input, 5)));
 }
 
-exports["isSIRET"] = isSIRET;
+exports.isSIRET = isSIRET;

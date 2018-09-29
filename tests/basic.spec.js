@@ -1,5 +1,5 @@
 var validators = require("../distrib/format-validator.min.js");
 
-var v = validators.isIBAN("FR05 2004 1010 0509 5187 2N02 692");
+var v = validators.isDate("12/02/1973", ["DD-MM-YYYY", "DD/MM/YYYY"]);
 
 console.log(v);

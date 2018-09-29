@@ -16,4 +16,4 @@ function isEAN13(input) {
   return ((sum % 10) === 0);
 }
 
-exports["isEAN13"] = isEAN13;
+exports.isEAN13 = isEAN13;

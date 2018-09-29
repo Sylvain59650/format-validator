@@ -6,4 +6,4 @@ function isEmail(input) {
     .test(input);
 }
 
-exports["isEmail"] = isEmail;
+exports.isEmail = isEmail;

@@ -57,4 +57,4 @@ function isNIR(input) {
   } catch (e) { return false; }
 }
 
-exports["isNIR"] = isNIR;
+exports.isNIR = isNIR;

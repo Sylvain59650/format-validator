@@ -11,4 +11,4 @@ function isIPv4(input) {
   return true;
 }
 
-exports["isIPv4"] = isIPv4;
+exports.isIPv4 = isIPv4;

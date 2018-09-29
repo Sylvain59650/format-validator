@@ -13,4 +13,4 @@ function sanitize(input, options) {
   return safe;
 }
 
-exports["sanitize"] = sanitize;
+exports.sanitize = sanitize;

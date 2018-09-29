@@ -33,4 +33,4 @@ function isRIB(str) {
   return ki === k;
 }
 
-exports["isRIB"] = isRIB;
+exports.isRIB = isRIB;

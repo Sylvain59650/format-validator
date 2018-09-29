@@ -122,4 +122,4 @@ function isIBAN(str) {
   return cRest === 1;
 }
 
-exports["isIBAN"] = isIBAN;
+exports.isIBAN = isIBAN;

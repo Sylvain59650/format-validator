@@ -15,4 +15,4 @@ function areIn(input, acceptings) {
   return true;
 }
 
-exports["areIn"] = areIn;
+exports.areIn = areIn;

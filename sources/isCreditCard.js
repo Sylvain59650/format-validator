@@ -10,9 +10,9 @@ const cardTypes = [
 
 
 function isCreditCard(str, type) {
-  if (!isLuhn(str)) { return false; }
   var l = str.length;
   if (l < 13 || l > 16) { return false; }
+  if (!isLuhn(str)) { return false; }
   if (type !== undefined) {
     var found = cardTypes.filter(function(x) { return x.type === type });
     if (found != null && found.length === 1) {
@@ -23,4 +23,4 @@ function isCreditCard(str, type) {
   return true;
 }
 
-exports["isCreditCard"] = isCreditCard;
+exports.isCreditCard = isCreditCard;

@@ -15,4 +15,4 @@ function isLuhn(input, modulo = 10) {
   }
   return ((sum % modulo) === 0);
 }
-exports["isLuhn"] = isLuhn;
+exports.isLuhn = isLuhn;
