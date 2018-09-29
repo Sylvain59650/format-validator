@@ -43,4 +43,4 @@ or
 
 # usage
 
-See [Demo](https://sylvain59650.github.io/format-validator/)
+See [API & Demo](https://sylvain59650.github.io/format-validator/)
