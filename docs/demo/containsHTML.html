@@ -16,9 +16,7 @@
     <a href="index.html" title="API"><img src="https://sylvain59650.github.io/demonstrator/img/api.png" height="32" /></a>
   </div>
 
-  <h2>Trash Emails Server</h2>
-  <input type="text" id="repo" value="https://sylvain59650.github.io/my-repositories/trashEmailsServers.txt" class="longtext" />
-  <h2>Email</h2>
+  <h2>Enter a valid text (doesn't contains HTML)</h2>
   <input type="text" id="inp" class="longtext" /><label id="output"></label>
 
   <script src="modules/format-validator/distrib/format-validator.min.js"></script>
@@ -26,12 +24,10 @@
     document.ready(function() {
       var inp = qsi("inp");
       var output = qsi("output");
-      var repo = qsi("repo");
-      validators.loadTrashEmailServers(repo.value);
 
       inp.on("keyup", function() {
         var input = inp.value;
-        var result = validators.isEmail(input) && !validators.isTrashEmail(input);
+        var result = !validators.containsHTML(input);
         if (result) {
           output.addClass("ok");
           output.removeClass("ko");
