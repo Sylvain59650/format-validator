@@ -12,8 +12,8 @@ function decodeFormat(format) {
 
 }
 
-function isDate(input, formats) {
-  for (var format of formats) {
+function isDate(input, options) {
+  for (var format of options.formats) {
     var exp = decodeFormat(format);
     if (exp.reg.test(input)) {
       var tokens = input.split(exp.sp);
@@ -25,6 +25,11 @@ function isDate(input, formats) {
         monthLength[1] = 29;
       }
       if (d > 0 && d <= monthLength[m - 1] && m >= 1 && m <= 12 && y >= 0 && y <= 9999) {
+        var dt = new Date(y, m - 1, d);
+        if ((options.max && dt > options.max) ||
+          (options.min && dt < options.min)) {
+          return false;
+        }
         return true;
       }
     }

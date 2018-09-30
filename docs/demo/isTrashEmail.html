@@ -16,25 +16,30 @@
     <a href="index.html" title="API"><img src="https://sylvain59650.github.io/demonstrator/img/api.png" height="32" /></a>
   </div>
 
-  <h2>Test your password strength</h2>
-  <input type="text" id="inp" /><label id="output"></label>
+  <h2>type allow characters</h2>
+  <input type="text" id="repo" value="https://sylvain59650.github.io/my-repositories/trashEmailsServers.txt" class="longtext" />
+  <h2>Enter text according allowed characters</h2>
+  <input type="text" id="inp" class="longtext" /><label id="output"></label>
 
   <script src="modules/format-validator/distrib/format-validator.min.js"></script>
   <script>
     document.ready(function() {
       var inp = qsi("inp");
       var output = qsi("output");
+      var repo = qsi("repo");
+      debugger;
+      validators.loadTrashEmailServers(repo.value);
 
       inp.on("keyup", function() {
         var input = inp.value;
-        var result = validators.isStrongPassword(input);
-        output.removeClass("valid-0");
-        output.removeClass("valid-1");
-        output.removeClass("valid-2");
-        output.removeClass("valid-3");
-        output.removeClass("valid-4");
-        output.removeClass("valid-5");
-        output.addClass("valid-" + result);
+        var result = validators.isTrashEmail(input);
+        if (result) {
+          output.addClass("ok");
+          output.removeClass("ko");
+        } else {
+          output.addClass("ko");
+          output.removeClass("ok");
+        }
       });
     });
   </script>

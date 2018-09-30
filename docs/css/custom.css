@@ -20,3 +20,51 @@ label.ko {
 input.longtext {
   width: 400px;
 }
+
+.valid-0 {
+  background-image: url(star-empty.png);
+  background-repeat: no-repeat;
+  display: inline-block;
+  max-width: 24px;
+  min-width: 24px;
+}
+
+.valid-1 {
+  background-image: url(star.png);
+  background-repeat: repeat-x;
+  display: inline-block;
+  max-width: 24px;
+  min-width: 24px;
+}
+
+.valid-2 {
+  background-image: url(star.png);
+  background-repeat: repeat-x;
+  display: inline-block;
+  max-width: 48px;
+  min-width: 48px;
+}
+
+.valid-3 {
+  background-image: url(star.png);
+  background-repeat: repeat-x;
+  display: inline-block;
+  max-width: 72px;
+  min-width: 72px;
+}
+
+.valid-4 {
+  background-image: url(star.png);
+  background-repeat: repeat-x;
+  display: inline-block;
+  max-width: 96px;
+  min-width: 96px;
+}
+
+.valid-5 {
+  background-image: url(star.png);
+  background-repeat: repeat-x;
+  display: inline-block;
+  max-width: 120px;
+  min-width: 120px;
+}

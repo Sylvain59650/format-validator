@@ -1,5 +1,4 @@
+//var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 var validators = require("../distrib/format-validator.min.js");
 
-var v = validators.isDate("12/02/1973", ["DD-MM-YYYY", "DD/MM/YYYY"]);
-
-console.log(v);
+validators.loadTrashEmailServers("https://sylvain59650.github.io/my-repositories/trashEmailsServers.txt");

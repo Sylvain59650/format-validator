@@ -9,15 +9,18 @@ const cardTypes = [
 ]
 
 
-function isCreditCard(str, type) {
+function isCreditCard(str, cardTypesAllowed) {
+  cardTypesAllowed = cardTypesAllowed || cardTypes;
   var l = str.length;
   if (l < 13 || l > 16) { return false; }
   if (!isLuhn(str)) { return false; }
-  if (type !== undefined) {
-    var found = cardTypes.filter(function(x) { return x.type === type });
-    if (found != null && found.length === 1) {
-      found = found[0];
-      return l >= found.minLength && l <= found.maxLength && found.reg.test(str);
+  if (cardTypesAllowed !== undefined) {
+    for (var type of cardTypesAllowed) {
+      var found = cardTypes.filter(function(x) { return x.type === type });
+      if (found != null && found.length === 1) {
+        found = found[0];
+        return l >= found.minLength && l <= found.maxLength && found.reg.test(str);
+      }
     }
   }
   return true;
