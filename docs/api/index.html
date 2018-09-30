@@ -47,6 +47,8 @@
   <nav>
     <li><a href="#areDigits">areDigits</a></li>
     <li><a href="#areIn">areIn</a></li>
+    <li><a href="#containsHTML">containsHTML</a></li>
+    <li><a href="#containsURL">containsURL</a></li>
     <li><a href="#isBIC">isBIC</a></li>
     <li><a href="#isCreditCard">isCreditCard</a></li>
     <li><a href="#isDate">isDate</a></li>
@@ -67,8 +69,9 @@
     <li><a href="#isSEDOL">isSEDOL</a></li>
     <li><a href="#isSIREN">isSIREN</a></li>
     <li><a href="#isSIRET">isSIRET</a></li>
-    <li><a href="#isStrongPassword">isStringPassword</a></li>
+    <li><a href="#isStrongPassword">isStrongPassword</a></li>
     <li><a href="#isTime">isTime</a></li>
+    <li><a href="#isTrashEmail">isTrashEmail</a></li>
     <li><a href="#isURL">isURL</a></li>
     <li><a href="#sanitize">sanitize</a></li>
     <li><a href="#validRegex">validRegex</a></li>
@@ -92,6 +95,18 @@
     <h2>areIn</h2>
     <div class="description">Check if a string contains only char in acceptings</div>
     <code>validators.areIn(input,acceptings);</code>
+  </article>
+
+  <article id="containsHTML">
+    <h2>containsHTML</h2>
+    <div class="description">Check if a string contains HTML parts</div>
+    <code>validators.containsHTML(input);</code>
+  </article>
+
+  <article id="containsURL">
+    <h2>containsURL</h2>
+    <div class="description">Check if a string contains URL</div>
+    <code>validators.containsURL(input);</code>
   </article>
 
   <article id="isBIC">
@@ -233,6 +248,13 @@
     <h2>isTIME</h2>
     <div class="description">Check if a string represents a valid time, like 14:00</div>
     <code>validators.isTIME(input);</code>
+  </article>
+
+  <article id="isTrashEmail">
+    <h2>isTrashEmail</h2>
+    <div class="description">Check if input is a trash Email</div>
+    <div class="controle">Use validators.loadTrashEmailServers(url); to prefetch trash email servers by loading url </div>
+    <code>validators.isTrashEmail(input);</code>
   </article>
 
   <article id="isURL">
