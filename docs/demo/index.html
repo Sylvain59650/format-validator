@@ -2,11 +2,6 @@
 
 <body>
 
-  <head>
-    <script src="https://cdn.jsdelivr.net/npm/htmlelement-extension@0.8.8/distrib/htmlElement.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/htmlelement-events-extension@0.9.8/distrib/htmlElement-events.min.js"></script>
-
-  </head>
   <div class="breadcrumb">
     <a href="https://www.npmjs.com/package/format-validator" title="NPM">
       <img src="https://sylvain59650.github.io/demonstrator/img/npm.png" height="32"></a>
@@ -14,19 +9,36 @@
 
   </div>
 
-  <script src="modules/format-validator/distrib/format-validator.min.js"></script>
-  <script>
-    document.ready(function() {
-      qsi("btn").on("click", function() {
-        debugger;
-        var input = qsi("ean").value;
-        var result = validators.isEAN13(input);
-        console.log(result);
-      });
-    });
-  </script>
-  <input type="text" name="ean" id="ean" />
-  <button type="button" id="btn">Ok</button>
+
+  <nav>
+    <li><a href="areDigits.html">areDigits</a></li>
+    <li><a href="areIn.html">areIn</a></li>
+    <li><a href="isBIC.html">isBIC</a></li>
+    <li><a href="isCreditCard.html">isCreditCard</a></li>
+    <li><a href="isDate.html">isDate</a></li>
+    <li><a href="isEAN13.html">isEAN13</a></li>
+    <li><a href="isEmail.html">isEmail</a></li>
+    <li><a href="isEmpty.html">isEmpty</a></li>
+    <li><a href="isIBAN.html">isIBAN</a></li>
+    <li><a href="isFloat.html">isFloat</a></li>
+    <li><a href="isIMEI.html">isIMEI</a></li>
+    <li><a href="isInteger.html">isInteger</a></li>
+    <li><a href="isIPv4.html">isIPv4</a></li>
+    <li><a href="isISBN.html">isISBN</a></li>
+    <li><a href="isISSN.html">isISSN</a></li>
+    <li><a href="isLuhn.html">isLuhn</a></li>
+    <li><a href="isMobilePhoneFr.html">isMobilePhoneFr</a></li>
+    <li><a href="isNIR.html">isNIR</a></li>
+    <li><a href="isRIB.html">isRIB</a></li>
+    <li><a href="isSEDOL.html">isSEDOL</a></li>
+    <li><a href="isSIREN.html">isSIREN</a></li>
+    <li><a href="isSIRET.html">isSIRET</a></li>
+    <li><a href="isStrongPassword.html">isStringPassword</a></li>
+    <li><a href="isTime.html">isTime</a></li>
+    <li><a href="isURL.html">isURL</a></li>
+    <li><a href="sanitize.html">sanitize</a></li>
+    <li><a href="validRegex.html">validRegex</a></li>
+  </nav>
 </body>
 
 </html>

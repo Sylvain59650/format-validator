@@ -1,0 +1,43 @@
+<html>
+
+<body>
+
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/htmlelement-extension@0.8.8/distrib/htmlElement.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/htmlelement-events-extension@0.9.8/distrib/htmlElement-events.min.js"></script>
+    <link href="https://sylvain59650.github.io/demonstrator/css/style.css" type="text/css" rel="stylesheet" />
+    <link href="https://sylvain59650.github.io/demonstrator/css/demo.css" type="text/css" rel="stylesheet" />
+    <link href="../css/custom.css" type="text/css" rel="stylesheet" />
+  </head>
+  <div class="breadcrumb">
+    <a href="https://www.npmjs.com/package/format-validator" title="NPM">
+      <img src="https://sylvain59650.github.io/demonstrator/img/npm.png" height="32"></a>
+    <a href="https://github.com/Sylvain59650/format-validator" title="GitHub"><img src="https://github.com/favicon.ico" height="32" /></a>
+    <a href="index.html" title="API"><img src="https://sylvain59650.github.io/demonstrator/img/api.png" height="32" /></a>
+  </div>
+
+  <h2>Enter a valid BIC code</h2>
+  <input type="text" id="inp" /><label id="output"></label>
+
+  <script src="modules/format-validator/distrib/format-validator.min.js"></script>
+  <script>
+    document.ready(function() {
+      var inp = qsi("inp");
+      var output = qsi("output");
+
+      inp.on("keyup", function() {
+        var input = inp.value;
+        var result = validators.isBIC(input);
+        if (result) {
+          output.addClass("ok");
+          output.removeClass("ko");
+        } else {
+          output.addClass("ko");
+          output.removeClass("ok");
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

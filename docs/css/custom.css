@@ -1,0 +1,22 @@
+label {
+  background-repeat: no-repeat;
+  position: relative;
+  top: 7px;
+  display: inline-block;
+  min-height: 24px;
+  min-width: 24px;
+  margin: 0px;
+  margin-left: 5px;
+}
+
+label.ok {
+  background-image: url(https://sylvain59650.github.io/demonstrator/img/ok.png)
+}
+
+label.ko {
+  background-image: url(https://sylvain59650.github.io/demonstrator/img/ko.png)
+}
+
+input.longtext {
+  width: 400px;
+}
