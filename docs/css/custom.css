@@ -21,6 +21,10 @@ input.longtext {
   width: 400px;
 }
 
+input.verylongtext {
+  width: 700px;
+}
+
 .valid-0 {
   background-image: url(star-empty.png);
   background-repeat: no-repeat;
