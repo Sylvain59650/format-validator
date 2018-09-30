@@ -1,4 +1,4 @@
-const trashEmailsServers = ["mailox.biz", "yopmail",
+var trashEmailsServers = ["mailox.biz", "yopmail",
   "cool.fr.nf",
   "jetable.fr.nf",
   "nospam.ze.tc",
@@ -17,6 +17,7 @@ function loadTrashEmailServers(url) {
   request.onload = function() {
     if (request.status >= 200 && request.status < 400) {
       debugger;
+      trashEmailsServers = request.responseText.split("\n");
     } else {
       console.error("ajax error", request);
     }
