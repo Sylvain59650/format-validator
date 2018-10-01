@@ -1,4 +1,4 @@
-function isStrongPassword(input, acceptings) {
+function getStrongPassword(input, acceptings) {
   var strength = 0;
   if (input.length < 8) {
     return 0;
@@ -19,4 +19,4 @@ function isStrongPassword(input, acceptings) {
   return strength;
 }
 
-exports.isStrongPassword = isStrongPassword;
+exports.getStrongPassword = getStrongPassword;
