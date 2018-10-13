@@ -18,10 +18,10 @@ test("getStrongPassword-0", t => {
 });
 
 
-test("isStrongPassword-1", t => {
+test("getStrongPassword-1", t => {
   var inputs = ["lkjhgfrty", "uiolk%jk"];
   for (var input of inputs) {
-    let result = validators.isStrongPassword(input);
+    let result = validators.getStrongPassword(input);
     t.deepEqual(result, 1, input + " fail");
   }
 });
