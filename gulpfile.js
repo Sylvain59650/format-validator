@@ -2,7 +2,6 @@
 var gulp = require("gulp");
 var concat = require("gulp-concat");
 var watch = require("gulp-watch");
-//var umd = require("gulp-umd");
 
 var chemins = {
   sources: "./sources/",
@@ -20,7 +19,7 @@ gulp.task("format-validator.min.js", ["vendor"], () => {
     .pipe(concat("format-validator.min.js"))
     .pipe(babel({
       presets: ["env"],
-      compact: false,
+      compact: true,
       comments: false
     }))
 
