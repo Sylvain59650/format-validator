@@ -1,5 +1,5 @@
-function maxlength(input, max) {
-  return input.length <= max;
+function maxlength(input, options) {
+  return input.length <= options.max;
 }
 
 exports.maxlength = maxlength;

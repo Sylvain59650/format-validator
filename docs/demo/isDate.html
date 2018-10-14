@@ -27,7 +27,9 @@
 
       inp.on("keyup", function() {
         var input = inp.value;
-        var result = validators.isDate(input, ["DD/MM/YYYY", "DD-MM-YYYY", "YYYY-MM-DD"]);
+        var result = validators.isDate(input, {
+          formats: ["DD/MM/YYYY", "DD-MM-YYYY", "YYYY-MM-DD"]
+        });
         if (result) {
           output.addClass("ok");
           output.removeClass("ko");

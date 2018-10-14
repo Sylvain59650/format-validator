@@ -11,7 +11,7 @@ test("maxlength", t => {
     { i: "123456", max: 5, exp: false }
   ];
   for (var input of inputs) {
-    let result = validators.maxlength(input.i, input.max);
+    let result = validators.maxlength(input.i, { max: input.max });
     t.deepEqual(result, input.exp, input.i + " fail");
   }
 });

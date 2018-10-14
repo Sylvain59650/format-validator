@@ -4,7 +4,7 @@ var validators = require("../distrib/format-validator.min.js");
 test("getStrongPassword---1", t => {
   var inputs = ["123asd^P*", "PdsaH2313123"];
   for (var input of inputs) {
-    let result = validators.getStrongPassword(input, "123asdP*");
+    let result = validators.getStrongPassword(input, { acceptings: "123asdP*" });
     t.deepEqual(result, -1, input + " fail");
   }
 });

@@ -30,7 +30,9 @@
 
       inp.on("keyup", function() {
         var input = inp.value;
-        var result = validators.areIn(input, allow.value);
+        var result = validators.areIn(input, {
+          acceptings: allow.value
+        });
         if (result) {
           output.addClass("ok");
           output.removeClass("ko");

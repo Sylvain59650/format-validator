@@ -1,5 +1,5 @@
-function minlength(input, min) {
-  return input.length >= min;
+function minlength(input, options) {
+  return input.length >= options.min;
 }
 
 exports.minlength = minlength;

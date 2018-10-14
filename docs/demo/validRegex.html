@@ -31,7 +31,9 @@
 
       inp.on("keyup", function() {
         var regex = new RegExp(re.value);
-        var result = validators.validRegex(inp.value, regex);
+        var result = validators.validRegex(inp.value, {
+          regex: regex
+        });
         if (result) {
           output.addClass("ok");
           output.removeClass("ko");

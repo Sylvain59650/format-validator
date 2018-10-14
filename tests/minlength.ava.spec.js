@@ -10,7 +10,7 @@ test("minlength", t => {
     { i: "", min: 1, exp: false }
   ];
   for (var input of inputs) {
-    let result = validators.minlength(input.i, input.min);
+    let result = validators.minlength(input.i, { min: input.min });
     t.deepEqual(result, input.exp, input.i + " fail");
   }
 });

@@ -1,23 +1,13 @@
 var trashEmailsServers = [];
 
-function loadTrashEmailServers(url) {
-  var request = new XMLHttpRequest();
-  request.open("GET", url, true);
-  request.onload = function() {
-    if (request.status >= 200 && request.status < 400) {
-      trashEmailsServers = request.responseText.split("\n");
-    } else {
-      console.error("ajax error while loadTrashEmailServers", request);
-    }
-  };
-  request.send();
+function setTrashEmailsServer(array) {
+  trashEmailsServers = array;
 }
-
-exports.loadTrashEmailServers = loadTrashEmailServers;
+exports.setTrashEmailsServer = setTrashEmailsServer;
 
 function isTrashEmail(input) {
   if (trashEmailsServers.length === 0) {
-    throw Error("call loadTrashEmailServers with url before call isTrashEmail");
+    throw Error("call setTrashEmailsServer with array string before call isTrashEmail");
   }
   var toks = input.split("@");
   if (toks.length !== 2) {

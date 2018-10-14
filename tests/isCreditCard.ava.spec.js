@@ -23,7 +23,7 @@ test("isCreditCard-valids-masterCards", t => {
     "5397696455799499"
   ];
   for (var input of inputs) {
-    let result = validators.isCreditCard(input, ["MasterCard"]);
+    let result = validators.isCreditCard(input, { cardTypesAllowed: ["MasterCard"] });
     t.deepEqual(result, true, input + " fail");
   }
 });
@@ -33,7 +33,7 @@ test("isCreditCard-invalids-visa", t => {
     "5397696455799499"
   ];
   for (var input of inputs) {
-    let result = validators.isCreditCard(input, ["VISA"]);
+    let result = validators.isCreditCard(input, { cardTypesAllowed: ["VISA"] });
     t.deepEqual(result, false, input + " fail");
   }
 });

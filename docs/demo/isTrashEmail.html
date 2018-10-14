@@ -16,9 +16,6 @@
     <a href="index.html" title="API"><img src="https://sylvain59650.github.io/demonstrator/img/api.png" height="32" /></a>
   </div>
 
-  <h2>Trash Emails Server</h2>
-  <input type="text" id="repo" value="https://sylvain59650.github.io/my-repositories/trashEmailsServers.txt" class="verylongtext" />
-  <br/>
   <h2>Email</h2>
   <input type="text" id="inp" class="longtext" /><label id="output"></label>
 
@@ -28,7 +25,11 @@
       var inp = qsi("inp");
       var output = qsi("output");
       var repo = qsi("repo");
-      validators.loadTrashEmailServers(repo.value);
+      document.ajax("GET", "https://sylvain59650.github.io/my-repositories/trashEmailsServers.txt", "", function(response) {
+        var data = response.responseText.split("\n");
+        validators.setTrashEmailsServer(data);
+      })
+
 
       inp.on("keyup", function() {
         var input = inp.value;

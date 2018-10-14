@@ -9,8 +9,11 @@ const cardTypes = [
 ]
 
 
-function isCreditCard(str, cardTypesAllowed) {
-  cardTypesAllowed = cardTypesAllowed || cardTypes;
+function isCreditCard(str, options) {
+  var cardTypesAllowed = cardTypes;
+  if (options && options.cardTypesAllowed) {
+    cardTypesAllowed = options.cardTypesAllowed;
+  }
   var l = str.length;
   if (l < 13 || l > 16) { return false; }
   if (!isLuhn(str)) { return false; }

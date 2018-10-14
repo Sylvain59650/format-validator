@@ -1,8 +1,8 @@
 {
-  "author": "Sylvain Longepee <slongepee@gmail.com>",
+  "author": "Sylvain Longepee <slongepee@laposte.net>",
   "license": "MIT",
   "groupId": "slongepee",
-  "version": "0.8.3",
+  "version": "0.9.0",
   "main": "distrib/format-validator.min.js",
   "name": "format-validator",
   "description": "Validate specifics inputs",
@@ -39,6 +39,9 @@
     "RIB",
     "IBAN",
     "SEDOL",
+    "minlength",
+    "maxlength",
+    "equals",
     "front-end"
   ],
   "dependencies": {},

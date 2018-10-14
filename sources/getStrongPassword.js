@@ -1,10 +1,10 @@
-function getStrongPassword(input, acceptings) {
+function getStrongPassword(input, options) {
   var strength = 0;
   if (input.length < 8) {
     return 0;
   }
 
-  if (acceptings && !areIn(input, acceptings)) {
+  if (options && options.acceptings && !areIn(input, options)) {
     return -1;
   }
   if (input.length > 8) strength += 1

@@ -1,5 +1,5 @@
-function validRegex(input, reg) {
-  return reg.test(input);
+function validRegex(input, options) {
+  return options.regex.test(input);
 }
 
 exports.validRegex = validRegex;

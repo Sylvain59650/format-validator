@@ -47,6 +47,8 @@
   <nav>
     <li><a href="#areDigits">areDigits</a></li>
     <li><a href="#areIn">areIn</a></li>
+    <li><a href="#areLettersOnly">areLettersOnly</a></li>
+
     <li><a href="#containsHTML">containsHTML</a></li>
     <li><a href="#containsURL">containsURL</a></li>
     <li><a href="#isBIC">isBIC</a></li>
@@ -73,9 +75,12 @@
     <li><a href="#isTime">isTime</a></li>
     <li><a href="#isValid">isValid</a></li>
     <li><a href="#isTrashEmail">isTrashEmail</a></li>
+    <li><a href="#minlength">minlength</a></li>
+    <li><a href="#maxlength">maxlength</a></li>
     <li><a href="#isURL">isURL</a></li>
     <li><a href="#sanitize">sanitize</a></li>
     <li><a href="#validRegex">validRegex</a></li>
+    <li><a href="#toDate">toDate</a></li>
   </nav>
   <intro>
     <h3>For Node.js</h3>
@@ -94,6 +99,11 @@
     <h2>areIn</h2>
     <div class="description">Check if a string contains only char in acceptings</div>
     <code>validators.areIn(input,acceptings);</code>
+  </article>
+  <article id="areLettersOnly">
+    <h2>areLettersOnly</h2>
+    <div class="description">Check if a string contains only alphabetics char</div>
+    <code>validators.areLettersOnly(input);</code>
   </article>
 
   <article id="containsHTML">
@@ -126,7 +136,7 @@
         type if filled must be MasterCard, VISA, Amex, DinersClub, enRoute, Discover or JCB
         check the format according to the type, length of input and control key
     </pre></div>
-    <code>validators.isCreditCard(input,type);</code>
+    <code>validators.isCreditCard(input,{ cardTypesAllowed:["XXX","YYYY"]} );</code>
   </article>
 
   <article id="isDate">
@@ -134,7 +144,7 @@
     <div class="description">Check if a string represents a valid date</div>
     <div class="controle">check if input respect format date</div>
     <code>validators.isDate(input,formats);</code>
-    <div class="example"> validators.isDate("12-02-1973",{format:["DD-MM-YYYY"],min:new Date(1970,0,1)});</div>
+    <div class="example"> validators.isDate("12-02-1973", {format:["DD-MM-YYYY"],min:new Date(1970,0,1)} );</div>
   </article>
 
   <article id="isEAN13">
@@ -153,14 +163,14 @@
   <article id="isEmpty">
     <h2>isEmpty</h2>
     <div class="description">Check if a string is empty, options can accept whitespace or not</div>
-    <code>validators.isEmpty(input,{ignore_spaces:true});</code>
+    <code>validators.isEmpty(input, {ignore_spaces:true} );</code>
   </article>
 
   <article id="isFloat">
     <h2>isFloat</h2>
     <div class="description">Check if a string represents a float,options accept min and max values</div>
     <code>validators.isFloat(input,options);</code>
-    <div class="example"> validators.isFloat("985.35",{ min:-5.1,max:9999.0});</div>
+    <div class="example"> validators.isFloat("985.35", { min:-5.1, max:9999.0} );</div>
   </article>
 
   <article id="isIMEI">
@@ -173,24 +183,24 @@
     <h2>isInteger</h2>
     <div class="description">Check if a string represents a integer,options accept allow_leading_zeroes, min and max values</div>
     <code>validators.isInteger(input,options);</code>
-    <div class="example"> validators.isInteger("98535",{allow_leading_zeroes:false, min:-5,max:999999});</div>
+    <div class="example"> validators.isInteger("98535", {allow_leading_zeroes:false, min:-5, max:999999} );</div>
   </article>
 
   <article id="isIPv4">
-    <h2>isIMEI</h2>
-    <div class="description">Check if a string represents a valid isIPv4 format</div>
+    <h2>isIPv4</h2>
+    <div class="description">Check if a string represents a valid IP v4 format</div>
     <code>validators.isIPv4(input);</code>
   </article>
 
   <article id="isISBN">
     <h2>isISBN</h2>
-    <div class="description">Check if a string represents a valid isISBN number</div>
+    <div class="description">Check if a string represents a valid ISBN number</div>
     <code>validators.isISBN(input);</code>
   </article>
 
   <article id="isISSN">
     <h2>isISSN</h2>
-    <div class="description">Check if a string represents a valid isISSN number</div>
+    <div class="description">Check if a string represents a valid ISSN number</div>
     <code>validators.isISSN(input);</code>
   </article>
 
@@ -255,14 +265,23 @@
   </article>
   <article id="isValid">
     <h2>isValid</h2>
-    <div class="description">Check if input is valid by server</div>
-    <code>validators.isValid(input,options);</code>
+    <div class="description">Check if the validity of input by a server</div>
+    <code>validators.isValid(input, {url:"XXXXX", onResponse:function(json){...}, onError:function(){...} } );</code>
+    <pre> options is a JSON object with properties:
+      url:url to call to check the input
+      onResponse: a function called when the server responds
+      onError: a function called when the server does not responds. 
+   
+      the JSON response should be like this: {cd:0,msg:""} but you can do what you want. You define it in your onResponse function.
+
+    </pre>
   </article>
   <article id="isTrashEmail">
     <h2>isTrashEmail</h2>
     <div class="description">Check if input is a trash Email</div>
-    <div class="controle">Use validators.loadTrashEmailServers(url); to prefetch trash email servers by loading url </div>
+    <div class="controle">you can plug before a bad servers list with validators.setTrashEmailsServer(serverNames); to prefetch trash email servers</div>
     <code>validators.isTrashEmail(input);</code>
+
   </article>
 
   <article id="isURL">
@@ -280,7 +299,25 @@
   <article id="validRegex">
     <h2>validRegex</h2>
     <div class="description">Check if a string respect a regular expression</div>
-    <code>validators.validRegex(input);</code>
+    <code>validators.validRegex(input, {regex:XXX} );</code>
+  </article>
+
+  <article id="minlength">
+    <h2>minlength</h2>
+    <div class="description">verify that a string contains at least XXX characters</div>
+    <code>validators.minlength(input, {min:XXX} );</code>
+  </article>
+
+  <article id="maxlength">
+    <h2>maxlength</h2>
+    <div class="description">verify that a string contains at most XXX characters</div>
+    <code>validators.maxlength(input, {max:XXX} );</code>
+  </article>
+
+  <article id="toDate">
+    <h2>toDate</h2>
+    <div class="description">convert a string to a date with specifics formats</div>
+    <code>validators.toDate(input, {formats:["XXX","YYYY"]} );</code>
   </article>
 </body>
 
