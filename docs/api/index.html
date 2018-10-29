@@ -2,323 +2,531 @@
 
 <head>
   <title>format-validator</title>
-  <link href="https://sylvain59650.github.io/demonstrator/css/demo.css" type="text/css" rel="stylesheet" />
-  <link href="https://sylvain59650.github.io/demonstrator/css/style.css" type="text/css" rel="stylesheet" />
+  <link href="https://sylvain59650.github.io/demonstrator/css/theme1.css" type="text/css" rel="stylesheet" />
 </head>
 
 <body>
-  <div class="breadcrumb">
-    <a href="https://www.npmjs.com/package/format-validator" title="NPM">
-      <img src="https://sylvain59650.github.io/demonstrator/img/npm.png" height="32"></a>
-    <a href="https://github.com/Sylvain59650/format-validator" title="GitHub"><img src="https://github.com/favicon.ico" height="32" /></a>
-  </div>
+  <div class="container">
+    <div>
+      <a href="https://www.npmjs.com/package/format-validator" title="NPM">
+        <img src="https://sylvain59650.github.io/demonstrator/img/npm.png" height="32"></a>
+      <a href="https://github.com/Sylvain59650/format-validator" title="GitHub"><img src="https://github.com/favicon.ico" height="32" /></a>
+    </div>
 
-  <style>
-    div.description {
-      background-color: white;
-      color: black;
-      font-size: 12pt;
-      margin: 10px;
-    }
-    
-    div.controle {
-      background-color: white;
-      color: gray;
-      font-style: italic;
-      font-size: 9pt;
-    }
-  </style>
-  <h1>format-validator</h1>
+    <style>
+      div.controle {
+        background-color: white;
+        color: gray;
+        font-style: italic;
+        font-size: 9pt;
+      }
+    </style>
+    <h1>format-validator</h1>
 
-  <div style="display:inline">
-    <a target="_blank" title="build" href="https://travis-ci.org/Sylvain59650/format-validator"><img src="https://travis-ci.org/Sylvain59650/format-validator.png?branch=master" /></a>
-    <a target="_blank" title="version" href="https://www.npmjs.com/package/format-validator"><img src="https://img.shields.io/npm/v/format-validator.svg" /></a>
-    <a target="_blank" title="package" href="https://github.com/Sylvain59650/format-validator"><img src="https://img.shields.io/github/package-json/v/Sylvain59650/format-validator.svg" /></a>
-    <a target="_blank" title="dependencies" href="https://david-dm.org/Sylvain59650/format-validator"><img src="https://img.shields.io/david/Sylvain59650/format-validator.svg" /></a>
-    <a target="_blank" title="dependencies graph" href="https://npm.anvaka.com/#/view/2d/format-validator"><img src="https://img.shields.io/badge/dependencies-graph-blue.svg" /></a>
-    <img src="https://img.shields.io/bundlephobia/min/format-validator.svg" />
-    <img src="https://img.shields.io/badge/eslint-ok-blue.svg" />
-    <a target="_blank" title="tests" href="https://sylvain59650.github.io/format-validator/"><img src="https://img.shields.io/badge/tests-passing-brightgreen.svg" /></a>
-    <img src="https://img.shields.io/npm/l/format-validator.svg" />
-    <img src="https://hits.dwyl.com/Sylvain59650/format-validator.svg" />
-  </div>
+    <div style="display:inline">
+      <a target="_blank" title="build" href="https://travis-ci.org/Sylvain59650/format-validator"><img src="https://travis-ci.org/Sylvain59650/format-validator.png?branch=master" /></a>
+      <a target="_blank" title="version" href="https://www.npmjs.com/package/format-validator"><img src="https://img.shields.io/npm/v/format-validator.svg" /></a>
+      <a target="_blank" title="package" href="https://github.com/Sylvain59650/format-validator"><img src="https://img.shields.io/github/package-json/v/Sylvain59650/format-validator.svg" /></a>
+      <a target="_blank" title="dependencies" href="https://david-dm.org/Sylvain59650/format-validator"><img src="https://img.shields.io/david/Sylvain59650/format-validator.svg" /></a>
+      <a target="_blank" title="dependencies graph" href="https://npm.anvaka.com/#/view/2d/format-validator"><img src="https://img.shields.io/badge/dependencies-graph-blue.svg" /></a>
+      <img src="https://img.shields.io/bundlephobia/min/format-validator.svg" />
+      <img src="https://img.shields.io/badge/eslint-ok-blue.svg" />
+      <a target="_blank" title="tests" href="https://sylvain59650.github.io/format-validator/"><img src="https://img.shields.io/badge/tests-passing-brightgreen.svg" /></a>
+      <img src="https://img.shields.io/npm/l/format-validator.svg" />
+      <img src="https://hits.dwyl.com/Sylvain59650/format-validator.svg" />
+    </div>
 
 
-  <nav>
-    <li><a href="#areDigits">areDigits</a></li>
-    <li><a href="#areIn">areIn</a></li>
-    <li><a href="#areLettersOnly">areLettersOnly</a></li>
+    <nav>
+      <li><a href="#areDigits">areDigits</a></li>
+      <li><a href="#areIn">areIn</a></li>
+      <li><a href="#areLettersOnly">areLettersOnly</a></li>
 
-    <li><a href="#containsHTML">containsHTML</a></li>
-    <li><a href="#containsURL">containsURL</a></li>
-    <li><a href="#isBIC">isBIC</a></li>
-    <li><a href="#isCreditCard">isCreditCard</a></li>
-    <li><a href="#isDate">isDate</a></li>
-    <li><a href="#isEAN13">isEAN13</a></li>
-    <li><a href="#isEmail">isEmail</a></li>
-    <li><a href="#isEmpty">isEmpty</a></li>
-    <li><a href="#isIBAN">isIBAN</a></li>
-    <li><a href="#isFloat">isFloat</a></li>
-    <li><a href="#isIMEI">isIMEI</a></li>
-    <li><a href="#isInteger">isInteger</a></li>
-    <li><a href="#isIPv4">isIPv4</a></li>
-    <li><a href="#isISBN">isISBN</a></li>
-    <li><a href="#isISSN">isISSN</a></li>
-    <li><a href="#isLuhn">isLuhn</a></li>
-    <li><a href="#isMobilePhoneFr">isMobilePhoneFr</a></li>
-    <li><a href="#isNIR">isNIR</a></li>
-    <li><a href="#isRIB">isRIB</a></li>
-    <li><a href="#isSEDOL">isSEDOL</a></li>
-    <li><a href="#isSIREN">isSIREN</a></li>
-    <li><a href="#isSIRET">isSIRET</a></li>
-    <li><a href="#getStrongPassword">getStrongPassword</a></li>
-    <li><a href="#isTime">isTime</a></li>
-    <li><a href="#isValid">isValid</a></li>
-    <li><a href="#isTrashEmail">isTrashEmail</a></li>
-    <li><a href="#minlength">minlength</a></li>
-    <li><a href="#maxlength">maxlength</a></li>
-    <li><a href="#isURL">isURL</a></li>
-    <li><a href="#sanitize">sanitize</a></li>
-    <li><a href="#validRegex">validRegex</a></li>
-    <li><a href="#toDate">toDate</a></li>
-  </nav>
-  <intro>
-    <h3>For Node.js</h3>
-    <code>var validators = require("node_modules/distrib/format-validator.min.js");</code>
-    <h3>For Browser</h3>
-    <code><xmp><script src="node_modules/distrib/format-validator.min.js"></script></xmp></code>
-  </intro>
+      <li><a href="#containsHTML">containsHTML</a></li>
+      <li><a href="#containsURL">containsURL</a></li>
+      <li><a href="#isBIC">isBIC</a></li>
+      <li><a href="#isCreditCard">isCreditCard</a></li>
+      <li><a href="#isDate">isDate</a></li>
+      <li><a href="#isEAN13">isEAN13</a></li>
+      <li><a href="#isEmail">isEmail</a></li>
+      <li><a href="#isEmpty">isEmpty</a></li>
+      <li><a href="#isIBAN">isIBAN</a></li>
+      <li><a href="#isFloat">isFloat</a></li>
+      <li><a href="#isIMEI">isIMEI</a></li>
+      <li><a href="#isInteger">isInteger</a></li>
+      <li><a href="#isIPv4">isIPv4</a></li>
+      <li><a href="#isISBN">isISBN</a></li>
+      <li><a href="#isISSN">isISSN</a></li>
+      <li><a href="#isLuhn">isLuhn</a></li>
+      <li><a href="#isMobilePhoneFr">isMobilePhoneFr</a></li>
+      <li><a href="#isNIR">isNIR</a></li>
+      <li><a href="#isRIB">isRIB</a></li>
+      <li><a href="#isSEDOL">isSEDOL</a></li>
+      <li><a href="#isSIREN">isSIREN</a></li>
+      <li><a href="#isSIRET">isSIRET</a></li>
+      <li><a href="#getStrongPassword">getStrongPassword</a></li>
+      <li><a href="#isTime">isTime</a></li>
+      <li><a href="#isValid">isValid</a></li>
+      <li><a href="#isTrashEmail">isTrashEmail</a></li>
+      <li><a href="#minlength">minlength</a></li>
+      <li><a href="#maxlength">maxlength</a></li>
+      <li><a href="#isURL">isURL</a></li>
+      <li><a href="#sanitize">sanitize</a></li>
+      <li><a href="#validRegex">validRegex</a></li>
+      <li><a href="#toDate">toDate</a></li>
+    </nav>
+    <intro>
+      <h3>For Node.js</h3>
+      <xmp>
+        var validators = require("node_modules/distrib/format-validator.min.js");
+      </xmp>
+      <h3>For Browser</h3>
+      <xmp>
+        <script src="node_modules/distrib/format-validator.min.js"></script>
+      </xmp>
+    </intro>
 
-  <article id="areDigits">
-    <h2>areDigits</h2>
-    <div class="description">Check if a string contains only digits</div>
-    <code>validators.areDigits(input);</code>
-  </article>
+    <article id="areDigits">
+      <h2>areDigits</h2>
+      <div class="signature">
+        <p>validators.areDigits(<i>input</i>);</p>
+      </div>
+      <div class="description">
+        <p>Check if a string contains only digits</p>
+      </div>
 
-  <article id="areIn">
-    <h2>areIn</h2>
-    <div class="description">Check if a string contains only char in acceptings</div>
-    <code>validators.areIn(input,acceptings);</code>
-  </article>
-  <article id="areLettersOnly">
-    <h2>areLettersOnly</h2>
-    <div class="description">Check if a string contains only alphabetics char</div>
-    <code>validators.areLettersOnly(input);</code>
-  </article>
+    </article>
 
-  <article id="containsHTML">
-    <h2>containsHTML</h2>
-    <div class="description">Check if a string contains HTML parts</div>
-    <code>validators.containsHTML(input);</code>
-  </article>
+    <article id="areIn">
+      <h2>areIn</h2>
+      <div class="signature">
+        <p>validators.areIn(<i>input</i>,<i>acceptings</i>);</p>
+      </div>
+      <div class="arg">
+        <p><i>acceptings</i>chars allowed</p>
+      </div>
+      <div class="description">
+        <p>Check if a string contains only char in acceptings</p>
+      </div>
+      <p class="example"></p>
+      <xmp>
+        validators.areIn("789654","1234567890"); // true validators.areIn("789654","abc"); // false
+      </xmp>
+    </article>
+    <article id="areLettersOnly">
+      <h2>areLettersOnly</h2>
+      <div class="signature">
+        <p>validators.areLettersOnly(<i>input</i>);</p>
+      </div>
+      <div class="description">
+        <p>Check if a string contains only alphabetics char</p>
+      </div>
 
-  <article id="containsURL">
-    <h2>containsURL</h2>
-    <div class="description">Check if a string contains URL</div>
-    <code>validators.containsURL(input);</code>
-  </article>
+    </article>
 
-  <article id="isBIC">
-    <h2>isBIC</h2>
-    <div class="description">Check if a string represents a valid BIC number</div>
-    <div class="controle"><pre>Code Banque : 4 caractères définissant la banque d'une manière unique
+    <article id="containsHTML">
+      <h2>containsHTML</h2>
+      <div class="signature">
+        <p>validators.containsHTML(<i>input</i>);</p>
+      </div>
+      <div class="description">
+        <p>Check if a string contains HTML parts</p>
+      </div>
+
+    </article>
+
+    <article id="containsURL">
+      <h2>containsURL</h2>
+      <div class="signature">
+        <p>validators.containsURL(<i>input</i>);</p>
+      </div>
+      <div class="description">
+        <p>Check if a string contains URL</p>
+      </div>
+
+    </article>
+
+    <article id="isBIC">
+      <h2>isBIC</h2>
+      <div class="signature">
+        <p>validators.isBIC(<i>input</i>);</p>
+      </div>
+      <div class="description">
+        <p>Check if a string represents a valid BIC number</p>
+      </div>
+      <div class="controle"><pre>Code Banque : 4 caractères définissant la banque d'une manière unique
               Code Pays : 2 caractères constituant le code ISO du pays (ISO 3166)
               Code Emplacement : 2 caractères de localisation (alphabétique ou numérique) pour distinguer les banques d'un même pays (ville, État, provinces)
               Code Branche : 3 caractères optionnels définissant l'agence comme une branche de la banque ('XXX' pour le siège central, 'LYO' pour une agence à Lyon, etc.)</div>
             </pre>
-      <code>validators.isBIC(input);</code>
-  </article>
 
-  <article id="isCreditCard">
-    <h2>isCreditCard</h2>
-    <div class="description">Check if a string represents a valid credit card number</div>
-    <div class="controle"><pre>
+    </article>
+
+    <article id="isCreditCard">
+      <h2>isCreditCard</h2>
+      <div class="signature">
+        <p>validators.isCreditCard(<i>input</i>,{ cardTypesAllowed:["XXX","YYYY"]} );</p>
+      </div>
+
+      <div class="description">
+        <p>Check if a string represents a valid credit card number</p>
+      </div>
+      <div class="controle"><pre>
         type if filled must be MasterCard, VISA, Amex, DinersClub, enRoute, Discover or JCB
-        check the format according to the type, length of input and control key
+        check the format according to the type, length of <i>input</i> and control key
     </pre></div>
-    <code>validators.isCreditCard(input,{ cardTypesAllowed:["XXX","YYYY"]} );</code>
-  </article>
+    </article>
 
-  <article id="isDate">
-    <h2>isDate</h2>
-    <div class="description">Check if a string represents a valid date</div>
-    <div class="controle">check if input respect format date</div>
-    <code>validators.isDate(input,formats);</code>
-    <div class="example"> validators.isDate("12-02-1973", {format:["DD-MM-YYYY"],min:new Date(1970,0,1)} );</div>
-  </article>
+    <article id="isDate">
+      <h2>isDate</h2>
+      <div class="signature">
+        <p>validators.isDate(<i>input</i>,<i>formats</i>);</p>
+      </div>
+      <div class="arg">
+        <p><i>formats</i>array of strings</p>
+      </div>
+      <div class="description">
+        <p>
+          <p>Check if a string represents a valid date</p>
+      </div>
+      <div class="controle">check if <i>input</i> respect format date</p>
+      </div>
 
-  <article id="isEAN13">
-    <h2>isEAN13</h2>
-    <div class="description">Check if a string represents a valid EAN13 code</div>
-    <div class="controle">13 digits + control key</div>
-    <code>validators.isEAN13(input);</code>
-  </article>
+      <p class="example">
+        <xmp>
+          validators.isDate("12-02-1973", {format:["DD-MM-YYYY"],min:new Date(1970,0,1)} );
+        </xmp>
+      </p>
+    </article>
 
-  <article id="isEmail">
-    <h2>isEmail</h2>
-    <div class="description">Check if a string represents a valid email format</div>
-    <code>validators.isEmail(input);</code>
-  </article>
+    <article id="isEAN13">
+      <h2>isEAN13</h2>
+      <div class="signature">
+        <p>validators.isEAN13(<i>input</i>);</p>
+      </div>
+      <div class="description">
+        <p>Check if a string represents a valid EAN13 code</p>
+      </div>
+      <div class="controle">13 digits + control key</div>
 
-  <article id="isEmpty">
-    <h2>isEmpty</h2>
-    <div class="description">Check if a string is empty, options can accept whitespace or not</div>
-    <code>validators.isEmpty(input, {ignore_spaces:true} );</code>
-  </article>
+    </article>
 
-  <article id="isFloat">
-    <h2>isFloat</h2>
-    <div class="description">Check if a string represents a float,options accept min and max values</div>
-    <code>validators.isFloat(input,options);</code>
-    <div class="example"> validators.isFloat("985.35", { min:-5.1, max:9999.0} );</div>
-  </article>
+    <article id="isEmail">
+      <h2>isEmail</h2>
+      <div class="signature">
+        <p>validators.isEmail(<i>input</i>);</p>
+      </div>
+      <div class="description">
+        <p>Check if a string represents a valid email format</p>
+      </div>
 
-  <article id="isIMEI">
-    <h2>isIMEI</h2>
-    <div class="description">Check if a string represents a valid IMEI format</div>
-    <code>validators.isIMEI(input);</code>
-  </article>
+    </article>
 
-  <article id="isInteger">
-    <h2>isInteger</h2>
-    <div class="description">Check if a string represents a integer,options accept allow_leading_zeroes, min and max values</div>
-    <code>validators.isInteger(input,options);</code>
-    <div class="example"> validators.isInteger("98535", {allow_leading_zeroes:false, min:-5, max:999999} );</div>
-  </article>
+    <article id="isEmpty">
+      <h2>isEmpty</h2>
+      <div class="signature">
+        <p>validators.isEmpty(<i>input</i>, {ignore_spaces:true} );</p>
+      </div>
+      <div class="description">
+        <p>Check if a string is empty, <i>options</i> can accept whitespace or not</div>
 
-  <article id="isIPv4">
-    <h2>isIPv4</h2>
-    <div class="description">Check if a string represents a valid IP v4 format</div>
-    <code>validators.isIPv4(input);</code>
-  </article>
+    </article>
 
-  <article id="isISBN">
-    <h2>isISBN</h2>
-    <div class="description">Check if a string represents a valid ISBN number</div>
-    <code>validators.isISBN(input);</code>
-  </article>
+    <article id="isFloat">
+      <h2>isFloat</h2>
+      <div class="signature">
+        <p>validators.isFloat(<i>input</i>,<i>options</i>);</p>
+      </div>
+      <div class="description">
+        <p>Check if a string represents a float,<i>options</i> accept min and max values</p>
+      </div>
 
-  <article id="isISSN">
-    <h2>isISSN</h2>
-    <div class="description">Check if a string represents a valid ISSN number</div>
-    <code>validators.isISSN(input);</code>
-  </article>
+      <p class="example">
+        <xmp>
+          validators.isFloat("985.35", { min:-5.1, max:9999.0} );
+        </xmp>
+      </p>
+    </article>
 
-  <article id="isLuhn">
-    <h2>isLuhn</h2>
-    <div class="description">Check if a string represents a valid "Luhn" number</div>
-    <code>validators.isLuhn(input);</code>
-  </article>
+    <article id="isIMEI">
+      <h2>isIMEI</h2>
+      <div class="signature">
+        <p>validators.isIMEI(<i>input</i>);</p>
+      </div>
+      <div class="description">
+        <p>Check if a string represents a valid IMEI format</p>
+      </div>
 
-  <article id="isMobilePhoneFr">
-    <h2>isMobilePhoneFr</h2>
-    <div class="description">Check if a string represents a valid mobile phone number in FRANCE</div>
-    <div class="controle">10 digits starts with 06 or 07</div>
-    <code>validators.isMobilePhoneFr(input);</code>
-  </article>
+    </article>
 
-  <article id="isNIR">
-    <h2>isNIR</h2>
-    <div class="description">Check if a string represents a valid NIR number</div>
-    <div class="controle">15 digits, sex + control key</div>
-    <code>validators.isNIR(input);</code>
-  </article>
+    <article id="isInteger">
+      <h2>isInteger</h2>
+      <div class="signature">
+        <p>validators.isInteger(<i>input</i>,<i>options</i>);</p>
+      </div>
+      <div class="description">
+        <p>Check if a string represents a integer,<i>options</i> accept allow_leading_zeroes, min and max values</p>
+      </div>
 
-  <article id="isRIB">
-    <h2>isNIR</h2>
-    <div class="description">Check if a string represents a valid RIB number</div>
-    <div class="controle">15 digits + control key</div>
-    <code>validators.isRIB(input);</code>
-  </article>
+      <p class="example">
+        <xmp>
+          validators.isInteger("98535", {allow_leading_zeroes:false, min:-5, max:999999} );
+        </xmp>
+      </p>
+    </article>
 
-  <article id="isSEDOL">
-    <h2>isSEDOL</h2>
-    <div class="description">Check if a string represents a valid SEDOL number</div>
-    <div class="controle"> control key</div>
-    <code>validators.isSEDOL(input);</code>
-  </article>
+    <article id="isIPv4">
+      <h2>isIPv4</h2>
+      <div class="signature">
+        <p>validators.isIPv4(<i>input</i>);</p>
+      </div>
+      <div class="description">
+        <p>Check if a string represents a valid IP v4 format</p>
+      </div>
 
-  <article id="isSIREN">
-    <h2>isSIREN</h2>
-    <div class="description">Check if a string represents a valid SIREN number</div>
-    <div class="controle">9 digits + control key</div>
-    <code>validators.isSIREN(input);</code>
-  </article>
+    </article>
 
-  <article id="isSIRET">
-    <h2>isSIRET</h2>
-    <div class="description">Check if a string represents a valid SIRET number</div>
-    <div class="controle">14 digits + control key</div>
-    <code>validators.isSIRET(input);</code>
-  </article>
+    <article id="isISBN">
+      <h2>isISBN</h2>
+      <div class="signature">
+        <p>validators.isISBN(<i>input</i>);</p>
+      </div>
+      <div class="description">
+        <p>Check if a string represents a valid ISBN number</p>
+      </div>
 
-  <article id="getStrongPassword">
-    <h2>getStrongPassword</h2>
-    <div class="description">calculate the strong of a password</div>
-    <code>validators.getStrongPassword(input);</code>
-  </article>
+    </article>
 
-  <article id="isTime">
-    <h2>isTime</h2>
-    <div class="description">Check if a string represents a valid time, like 14:00</div>
-    <code>validators.isTime(input);</code>
-  </article>
-  <article id="isValid">
-    <h2>isValid</h2>
-    <div class="description">Check if the validity of input by a server</div>
-    <code>validators.isValid(input, {url:"XXXXX", onResponse:function(json){...}, onError:function(){...} } );</code>
-    <pre> options is a JSON object with properties:
-      url:url to call to check the input
+    <article id="isISSN">
+      <h2>isISSN</h2>
+      <div class="signature">
+        <p>validators.isISSN(<i>input</i>);</p>
+      </div>
+      <div class="description">
+        <p>Check if a string represents a valid ISSN number</p>
+      </div>
+
+    </article>
+
+    <article id="isLuhn">
+      <h2>isLuhn</h2>
+      <div class="signature">
+        <p>validators.isLuhn(<i>input</i>);</p>
+      </div>
+      <div class="description">
+        <p>Check if a string represents a valid "Luhn" number</p>
+      </div>
+
+    </article>
+
+    <article id="isMobilePhoneFr">
+      <h2>isMobilePhoneFr</h2>
+      <div class="signature">
+        <p>validators.isMobilePhoneFr(<i>input</i>);</p>
+      </div>
+      <div class="description">
+        <p>Check if a string represents a valid mobile phone number in FRANCE</p>
+      </div>
+      <div class="controle">10 digits starts with 06 or 07</div>
+
+    </article>
+
+    <article id="isNIR">
+      <h2>isNIR</h2>
+      <div class="signature">
+        <p>validators.isNIR(<i>input</i>);</p>
+      </div>
+      <div class="description">
+        <p>Check if a string represents a valid NIR number</p>
+      </div>
+      <div class="controle">15 digits, sex + control key</div>
+
+    </article>
+
+    <article id="isRIB">
+      <h2>isNIR</h2>
+      <div class="signature">
+        <p>validators.isRIB(<i>input</i>);</p>
+      </div>
+      <div class="description">
+        <p>Check if a string represents a valid RIB number</p>
+      </div>
+      <div class="controle">15 digits + control key</div>
+
+    </article>
+
+    <article id="isSEDOL">
+      <h2>isSEDOL</h2>
+      <div class="signature">
+        <p>validators.isSEDOL(<i>input</i>);</p>
+      </div>
+      <div class="description">
+        <p>Check if a string represents a valid SEDOL number</p>
+      </div>
+      <div class="controle"> control key</div>
+
+    </article>
+
+    <article id="isSIREN">
+      <h2>isSIREN</h2>
+      <div class="signature">
+        <p>validators.isSIREN(<i>input</i>);</p>
+      </div>
+      <div class="description">
+        <p>Check if a string represents a valid SIREN number</p>
+      </div>
+      <div class="controle">9 digits + control key</div>
+      <div class="signature">
+        <p>validators.isSIREN(<i>input</i>);</p>
+      </div>
+    </article>
+
+    <article id="isSIRET">
+      <h2>isSIRET</h2>
+      <div class="signature">
+        <p>validators.isSIRET(<i>input</i>);</p>
+      </div>
+      <div class="description">
+        <p>Check if a string represents a valid SIRET number</p>
+      </div>
+      <div class="controle">14 digits + control key</div>
+
+    </article>
+
+    <article id="getStrongPassword">
+      <h2>getStrongPassword</h2>
+      <div class="signature">
+        <p>validators.getStrongPassword(<i>input</i>);</p>
+      </div>
+      <div class="description">
+        <p>calculate the strong of a password</p>
+      </div>
+
+    </article>
+
+    <article id="isTime">
+      <h2>isTime</h2>
+      <div class="signature">
+        <p>validators.isTime(<i>input</i>);</p>
+      </div>
+      <div class="description">
+        <p>Check if a string represents a valid time, like 14:00</p>
+      </div>
+
+    </article>
+    <article id="isValid">
+      <h2>isValid</h2>
+      <div class="signature">
+        <p>validators.isValid(<i>input</i>,<i>options</i> );</p>
+      </div>
+      <div class="arg">
+        <p><i>input</i></p>
+        <p><i>options</i>
+          <pre>{
+            url:"XXXXX", 
+            onResponse:function(json){...}, 
+            onError:function(){...} 
+          }
+        </pre>
+        </p>
+      </div>
+      <div class="description">
+        <p>
+          <p>Check if the validity of <i>input</i> by a server</p>
+        </p>
+      </div>
+      <pre> <i>options</i> is a JSON object with properties:
+      url:url to call to check the <i>input</i>
       onResponse: a function called when the server responds
       onError: a function called when the server does not responds. 
    
       the JSON response should be like this: {cd:0,msg:""} but you can do what you want. You define it in your onResponse function.
 
     </pre>
-  </article>
-  <article id="isTrashEmail">
-    <h2>isTrashEmail</h2>
-    <div class="description">Check if input is a trash Email</div>
-    <div class="controle">you can plug before a bad servers list with validators.setTrashEmailsServer(serverNames); to prefetch trash email servers</div>
-    <code>validators.isTrashEmail(input);</code>
+      <p class="example"></p>
+      <xmp>
+        validators.isValid("45678900", { url:"https://www.server.com?data={input}", onResponse: function(rep) { if (rep.cd===0) { alert("ok");} else {alert("ko");} }, onError:function(e) { alert("ko"); } } );
+      </xmp>
+    </article>
+    <article id="isTrashEmail">
+      <h2>isTrashEmail</h2>
+      <div class="signature">
+        <p>validators.isTrashEmail(<i>input</i>);</p>
+      </div>
 
-  </article>
+      <div class="description">
+        <p>Check if <i>input</i> is a trash Email</p>
+      </div>
+      <div class="controle">you can plug before a bad servers list with validators.setTrashEmailsServer(serverNames); to prefetch trash email servers</div>
 
-  <article id="isURL">
-    <h2>isURL</h2>
-    <div class="description">Check if a string represents a valid url</div>
-    <code>validators.isURL(input);</code>
-  </article>
+    </article>
 
-  <article id="sanitize">
-    <h2>sanitize</h2>
-    <div class="description">sanitize a string (remove separator like -, /,.)</div>
-    <code>validators.sanitize(input);</code>
-  </article>
+    <article id="isURL">
+      <h2>isURL</h2>
+      <div class="signature">
+        <p>validators.isURL(<i>input</i>);</p>
+      </div>
 
-  <article id="validRegex">
-    <h2>validRegex</h2>
-    <div class="description">Check if a string respect a regular expression</div>
-    <code>validators.validRegex(input, {regex:XXX} );</code>
-  </article>
+      <div class="description">
+        <p>Check if a string represents a valid url</p>
+      </div>
+    </article>
 
-  <article id="minlength">
-    <h2>minlength</h2>
-    <div class="description">verify that a string contains at least XXX characters</div>
-    <code>validators.minlength(input, {min:XXX} );</code>
-  </article>
+    <article id="sanitize">
+      <h2>sanitize</h2>
+      <div class="signature">
+        <p>validators.sanitize(<i>input</i>);</p>
+      </div>
+      <div class="description">
+        <p>sanitize a string (remove separator like -, /,.)</p>
+      </div>
 
-  <article id="maxlength">
-    <h2>maxlength</h2>
-    <div class="description">verify that a string contains at most XXX characters</div>
-    <code>validators.maxlength(input, {max:XXX} );</code>
-  </article>
+    </article>
 
-  <article id="toDate">
-    <h2>toDate</h2>
-    <div class="description">convert a string to a date with specifics formats</div>
-    <code>validators.toDate(input, {formats:["XXX","YYYY"]} );</code>
-  </article>
+    <article id="validRegex">
+      <h2>validRegex</h2>
+      <div class="signature">
+        <p>validators.validRegex(<i>input</i>, {regex:XXX} );</p>
+      </div>
+      <div class="description">
+        <p>Check if a string respect a regular expression</p>
+      </div>
+
+    </article>
+
+    <article id="minlength">
+      <h2>minlength</h2>
+      <div class="signature">
+        <p>validators.minlength(<i>input</i>, {min:XXX} );</p>
+      </div>
+      <div class="description">
+        <p>verify that a string contains at least XXX characters</p>
+      </div>
+
+    </article>
+
+    <article id="maxlength">
+      <h2>maxlength</h2>
+      <div class="signature">
+        <p>validators.maxlength(<i>input</i>, {max:XXX} );</p>
+      </div>
+      <div class="description">
+        <p>verify that a string contains at most XXX characters</p>
+      </div>
+
+    </article>
+
+    <article id="toDate">
+      <h2>toDate</h2>
+      <div class="signature">
+        <p>validators.toDate(<i>input</i>, {formats:["XXX","YYYY"]} );</p>
+      </div>
+      <div class="description">
+        <p>convert a string to a date with specifics formats</p>
+      </div>
+
+    </article>
+    </div>
 </body>
 
 </html>
