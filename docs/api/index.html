@@ -6,6 +6,26 @@
 </head>
 
 <body>
+  <style>
+    xmp {
+      white-space: pre;
+      display: block;
+      unicode-bidi: embed
+    }
+    
+    pre {
+      margin-top: 0
+    }
+    
+    div.controle {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+    
+    article {
+      margin-top: 50px;
+    }
+  </style>
   <div class="container">
     <div>
       <a href="https://www.npmjs.com/package/format-validator" title="NPM">
@@ -77,13 +97,13 @@
     </nav>
     <intro>
       <h3>For Node.js</h3>
-      <xmp>
+      <pre><xmp>
         var validators = require("node_modules/distrib/format-validator.min.js");
-      </xmp>
+      </xmp></pre>
       <h3>For Browser</h3>
-      <xmp>
+      <pre><xmp>
         <script src="node_modules/distrib/format-validator.min.js"></script>
-      </xmp>
+      </xmp></pre>
     </intro>
 
     <article id="areDigits">
@@ -94,7 +114,11 @@
       <div class="description">
         <p>Check if a string contains only digits</p>
       </div>
-
+      <p class="example"></p>
+      <pre><xmp>
+        validators.areDigits("789654"); // true 
+        validators.areDigits("abc"); // false
+      </xmp></pre>
     </article>
 
     <article id="areIn">
@@ -109,9 +133,10 @@
         <p>Check if a string contains only char in acceptings</p>
       </div>
       <p class="example"></p>
-      <xmp>
-        validators.areIn("789654","1234567890"); // true validators.areIn("789654","abc"); // false
-      </xmp>
+      <pre><xmp>
+        validators.areIn("789654","1234567890"); // false 
+        validators.areIn("789654","abc"); // false
+      </xmp></pre>
     </article>
     <article id="areLettersOnly">
       <h2>areLettersOnly</h2>
@@ -121,7 +146,10 @@
       <div class="description">
         <p>Check if a string contains only alphabetics char</p>
       </div>
-
+      <p class="example"></p>
+      <pre><xmp>
+        validators.areLettersOnly("abc-789"); // false validators.areLettersOnly("abcdeF"); // true
+      </xmp></pre>
     </article>
 
     <article id="containsHTML">
@@ -132,7 +160,11 @@
       <div class="description">
         <p>Check if a string contains HTML parts</p>
       </div>
-
+      <p class="example"></p>
+      <pre><xmp>
+        validators.containsHTML("789654"); // false 
+        validators.containsHTML("789<p>blabla</p>654"); // true
+      </xmp></pre>
     </article>
 
     <article id="containsURL">
@@ -143,7 +175,10 @@
       <div class="description">
         <p>Check if a string contains URL</p>
       </div>
-
+      <p class="example"></p>
+      <pre><xmp>
+        validators.containsURL("blabla https://www.google.fr blabla"); // true
+      </xmp></pre>
     </article>
 
     <article id="isBIC">
@@ -159,22 +194,34 @@
               Code Emplacement : 2 caractères de localisation (alphabétique ou numérique) pour distinguer les banques d'un même pays (ville, État, provinces)
               Code Branche : 3 caractères optionnels définissant l'agence comme une branche de la banque ('XXX' pour le siège central, 'LYO' pour une agence à Lyon, etc.)</div>
             </pre>
-
+        <p class="example"></p>
+        <pre><xmp>
+          validators.isBIC("789654"); // false 
+          validators.isBIC("COBADEFF"); // true
+        </xmp></pre>
     </article>
 
     <article id="isCreditCard">
       <h2>isCreditCard</h2>
       <div class="signature">
-        <p>validators.isCreditCard(<i>input</i>,{ cardTypesAllowed:["XXX","YYYY"]} );</p>
+        <p>validators.isCreditCard(<i>input</i>,<i>options</i>);</p>
       </div>
-
+      <div class="arg">
+        <p><i>options</i>{ cardTypesAllowed:["XXX","YYYY"]}</p>
+      </div>
       <div class="description">
         <p>Check if a string represents a valid credit card number</p>
       </div>
       <div class="controle"><pre>
         type if filled must be MasterCard, VISA, Amex, DinersClub, enRoute, Discover or JCB
         check the format according to the type, length of <i>input</i> and control key
-    </pre></div>
+    </pre>
+      </div>
+      <p class="example"></p>
+      <pre><xmp>
+        validators.isCreditCard("1234567890123456"); // false
+        validators.isCreditCard("5248203714529196"); // true        
+      </xmp></pre>
     </article>
 
     <article id="isDate">
@@ -193,9 +240,9 @@
       </div>
 
       <p class="example">
-        <xmp>
+        <pre><xmp>
           validators.isDate("12-02-1973", {format:["DD-MM-YYYY"],min:new Date(1970,0,1)} );
-        </xmp>
+        </xmp></pre>
       </p>
     </article>
 
@@ -208,7 +255,11 @@
         <p>Check if a string represents a valid EAN13 code</p>
       </div>
       <div class="controle">13 digits + control key</div>
-
+      <p class="example"></p>
+      <pre><xmp>
+        validators.isEAN13("789654"); // false
+        validators.isEAN13("4719512002889"); // true        
+      </xmp></pre>
     </article>
 
     <article id="isEmail">
@@ -219,17 +270,29 @@
       <div class="description">
         <p>Check if a string represents a valid email format</p>
       </div>
-
+      <p class="example"></p>
+      <pre><xmp>
+        validators.isEmail("slongepee@laposte.net"); // true 
+        validators.isEmail("slongepee@@laposte.net"); // false
+      </xmp></pre>
     </article>
 
     <article id="isEmpty">
       <h2>isEmpty</h2>
       <div class="signature">
-        <p>validators.isEmpty(<i>input</i>, {ignore_spaces:true} );</p>
+        <p>validators.isEmpty(<i>input</i>, <i>options</i>);</p>
+      </div>
+      <div class="arg">
+        <p><i>options</i>{ignore_spaces:true}</p>
       </div>
       <div class="description">
         <p>Check if a string is empty, <i>options</i> can accept whitespace or not</div>
-
+      <p class="example"></p>
+      <pre><xmp>
+        validators.isEmpty(""); // true 
+        validators.isEmpty(" ",{ignore_spaces:true}); // true
+         validators.isEmpty("456"); // false
+      </xmp></pre>
     </article>
 
     <article id="isFloat">
@@ -237,14 +300,18 @@
       <div class="signature">
         <p>validators.isFloat(<i>input</i>,<i>options</i>);</p>
       </div>
+      <div class="arg">
+        <p><i>options</i>{min:XXX,max:YYYY}</p>
+      </div>
       <div class="description">
         <p>Check if a string represents a float,<i>options</i> accept min and max values</p>
       </div>
 
       <p class="example">
-        <xmp>
-          validators.isFloat("985.35", { min:-5.1, max:9999.0} );
-        </xmp>
+        <pre><xmp>
+          validators.isFloat("985.35", { min:-5.1, max:9999.0} ); // true
+          validators.isFloat("985.35", { min:-5.1, max:9.0} ); // false
+        </xmp></pre>
       </p>
     </article>
 
@@ -256,7 +323,10 @@
       <div class="description">
         <p>Check if a string represents a valid IMEI format</p>
       </div>
-
+      <p class="example"></p>
+      <pre><xmp>
+        validators.isIMEI("789654"); // false
+      </xmp></pre>
     </article>
 
     <article id="isInteger">
@@ -264,14 +334,17 @@
       <div class="signature">
         <p>validators.isInteger(<i>input</i>,<i>options</i>);</p>
       </div>
+      <div class="arg">
+        <p><i>options</i>{allow_leading_zeroes:bool,min:XXX,max:YYYY}</p>
+      </div>
       <div class="description">
         <p>Check if a string represents a integer,<i>options</i> accept allow_leading_zeroes, min and max values</p>
       </div>
 
       <p class="example">
-        <xmp>
+        <pre><xmp>
           validators.isInteger("98535", {allow_leading_zeroes:false, min:-5, max:999999} );
-        </xmp>
+        </xmp></pre>
       </p>
     </article>
 
@@ -283,7 +356,11 @@
       <div class="description">
         <p>Check if a string represents a valid IP v4 format</p>
       </div>
-
+      <p class="example"></p>
+      <pre><xmp>
+        validators.isIPv4("789654"); // false 
+        validators.isIPv4("127.0.0.1"); // true
+      </xmp></pre>
     </article>
 
     <article id="isISBN">
@@ -294,7 +371,11 @@
       <div class="description">
         <p>Check if a string represents a valid ISBN number</p>
       </div>
-
+      <p class="example"></p>
+      <pre><xmp>
+        validators.isISBN("789654"); // false
+        validators.isISBN("4719512002889"); // true
+      </xmp></pre>
     </article>
 
     <article id="isISSN">
@@ -305,7 +386,11 @@
       <div class="description">
         <p>Check if a string represents a valid ISSN number</p>
       </div>
-
+      <p class="example"></p>
+      <pre><xmp>
+        validators.isISSN("789654"); // false
+        validators.isISSN("0395-2037"); // true        
+      </xmp></pre>
     </article>
 
     <article id="isLuhn">
@@ -316,7 +401,11 @@
       <div class="description">
         <p>Check if a string represents a valid "Luhn" number</p>
       </div>
-
+      <p class="example"></p>
+      <pre><xmp>
+        validators.isLuhn("789654"); // false
+        validators.isLuhn("4648592325813927"); // true        
+      </xmp></pre>
     </article>
 
     <article id="isMobilePhoneFr">
@@ -328,7 +417,11 @@
         <p>Check if a string represents a valid mobile phone number in FRANCE</p>
       </div>
       <div class="controle">10 digits starts with 06 or 07</div>
-
+      <p class="example"></p>
+      <pre><xmp>
+        validators.isMobilePhoneFr("060102030405"); // true 
+        validators.isMobilePhoneFr("60102030405"); // false
+      </xmp></pre>
     </article>
 
     <article id="isNIR">
@@ -340,7 +433,11 @@
         <p>Check if a string represents a valid NIR number</p>
       </div>
       <div class="controle">15 digits, sex + control key</div>
-
+      <p class="example"></p>
+      <pre><xmp>
+        validators.isNIR("789654"); // false
+        validators.isNIR("173025965003809"); // true
+      </xmp></pre>
     </article>
 
     <article id="isRIB">
@@ -352,7 +449,11 @@
         <p>Check if a string represents a valid RIB number</p>
       </div>
       <div class="controle">15 digits + control key</div>
-
+      <p class="example"></p>
+      <pre><xmp>
+        validators.isRIB("789654"); // false
+        validators.isRIB("20041010050981672P02624"); // true
+      </xmp></pre>
     </article>
 
     <article id="isSEDOL">
@@ -364,7 +465,11 @@
         <p>Check if a string represents a valid SEDOL number</p>
       </div>
       <div class="controle"> control key</div>
-
+      <p class="example"></p>
+      <pre><xmp>
+        validators.isSEDOL("789654"); // false
+        validators.isSEDOL("0263494"); // true
+      </xmp></pre>
     </article>
 
     <article id="isSIREN">
@@ -376,9 +481,11 @@
         <p>Check if a string represents a valid SIREN number</p>
       </div>
       <div class="controle">9 digits + control key</div>
-      <div class="signature">
-        <p>validators.isSIREN(<i>input</i>);</p>
-      </div>
+      <p class="example"></p>
+      <pre><xmp>
+        validators.isSIREN("789654"); // false
+        validators.isSIREN("552100554"); // true
+      </xmp></pre>
     </article>
 
     <article id="isSIRET">
@@ -390,7 +497,11 @@
         <p>Check if a string represents a valid SIRET number</p>
       </div>
       <div class="controle">14 digits + control key</div>
-
+      <p class="example"></p>
+      <pre><xmp>
+        validators.isSIRET("45210055598766"); // false
+        validators.isSIRET("55210055598765"); // true
+      </xmp></pre>
     </article>
 
     <article id="getStrongPassword">
@@ -401,7 +512,11 @@
       <div class="description">
         <p>calculate the strong of a password</p>
       </div>
-
+      <p class="example"></p>
+      <pre><xmp>
+        validators.getStrongPassword("789654"); // 0
+        validators.getStrongPassword("e7z89{Ab65#4é"); // 4
+      </xmp></pre>
     </article>
 
     <article id="isTime">
@@ -412,7 +527,11 @@
       <div class="description">
         <p>Check if a string represents a valid time, like 14:00</p>
       </div>
-
+      <p class="example"></p>
+      <pre><xmp>
+        validators.isTime("2500"); // false
+        validators.isTime("13:24"); // true
+      </xmp></pre>
     </article>
     <article id="isValid">
       <h2>isValid</h2>
@@ -444,9 +563,14 @@
 
     </pre>
       <p class="example"></p>
-      <xmp>
-        validators.isValid("45678900", { url:"https://www.server.com?data={input}", onResponse: function(rep) { if (rep.cd===0) { alert("ok");} else {alert("ko");} }, onError:function(e) { alert("ko"); } } );
-      </xmp>
+      <pre><xmp>
+        validators.isValid("45678900", 
+        { 
+          url:"https://www.server.com?data={input}", 
+          onResponse: function(rep) { if (rep.cd===0) { alert("ok");} else {alert("ko");} }, 
+          onError:function(e) { alert("ko"); } 
+        } );
+      </xmp></pre>
     </article>
     <article id="isTrashEmail">
       <h2>isTrashEmail</h2>
@@ -458,7 +582,11 @@
         <p>Check if <i>input</i> is a trash Email</p>
       </div>
       <div class="controle">you can plug before a bad servers list with validators.setTrashEmailsServer(serverNames); to prefetch trash email servers</div>
-
+      <p class="example"></p>
+      <pre><xmp>
+        validators.isTrashEmail("blabla@yopmail.com"); // true
+        validators.isTrashEmail("slongepee@laposte.net"); // false
+      </xmp></pre>
     </article>
 
     <article id="isURL">
@@ -470,6 +598,11 @@
       <div class="description">
         <p>Check if a string represents a valid url</p>
       </div>
+      <p class="example"></p>
+      <pre><xmp>
+        validators.isURL("htp://wwW.google.fr"); // false
+        validators.isURL("http://wwW.google.fr"); // true
+      </xmp></pre>
     </article>
 
     <article id="sanitize">
@@ -480,51 +613,81 @@
       <div class="description">
         <p>sanitize a string (remove separator like -, /,.)</p>
       </div>
-
+      <p class="example"></p>
+      <pre><xmp>
+        validators.sanitize("  78-96-54 "); // 789654
+      </xmp></pre>
     </article>
 
     <article id="validRegex">
       <h2>validRegex</h2>
       <div class="signature">
-        <p>validators.validRegex(<i>input</i>, {regex:XXX} );</p>
+        <p>validators.validRegex(<i>input</i>, <i>options</i> );</p>
+      </div>
+      <div class="arg">
+        <p><i>options</i>{regex:XXX}</p>
       </div>
       <div class="description">
         <p>Check if a string respect a regular expression</p>
       </div>
-
+      <p class="example"></p>
+      <pre><xmp>
+        validators.validRegex("a789654",{regex:\d}); // false
+        validators.validRegex("789654",{regex:\d}); // true
+      </xmp></pre>
     </article>
 
     <article id="minlength">
       <h2>minlength</h2>
       <div class="signature">
-        <p>validators.minlength(<i>input</i>, {min:XXX} );</p>
+        <p>validators.minlength(<i>input</i>, <i>options</i> );</p>
+      </div>
+      <div class="arg">
+        <p><i>options</i>{min:XXX}</p>
       </div>
       <div class="description">
         <p>verify that a string contains at least XXX characters</p>
       </div>
-
+      <p class="example"></p>
+      <pre><xmp>
+        validators.minlength("789654",{min:3}); // true
+      </xmp></pre>
     </article>
 
     <article id="maxlength">
       <h2>maxlength</h2>
       <div class="signature">
-        <p>validators.maxlength(<i>input</i>, {max:XXX} );</p>
+        <p>validators.maxlength(<i>input</i>, <i>options</i> );</p>
+      </div>
+      <div class="arg">
+        <p><i>input</i></p>
+        <p><i>options</i>{max:XXX}</p>
       </div>
       <div class="description">
         <p>verify that a string contains at most XXX characters</p>
       </div>
-
+      <p class="example"></p>
+      <pre><xmp>
+        validators.maxlength("789654",{max:10}); // true
+      </xmp></pre>
     </article>
 
     <article id="toDate">
       <h2>toDate</h2>
       <div class="signature">
-        <p>validators.toDate(<i>input</i>, {formats:["XXX","YYYY"]} );</p>
+        <p>validators.toDate(<i>input</i>, <i>options</i>);</p>
+      </div>
+      <div class="arg">
+        <p><i>input</i></p>
+        <p><i>options</i>{formats:["XXX","YYYY"]} </p>
       </div>
       <div class="description">
         <p>convert a string to a date with specifics formats</p>
       </div>
-
+      <p class="example"></p>
+      <pre><xmp>
+        validators.toDate("15-01-2019",{formats:["DD-MM-YYYY","DD/MM/YYYY"]}); // #15-01-2019
+      </xmp></pre>
     </article>
     </div>
 </body>
